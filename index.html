@@ -4,9 +4,18 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/x-icon" href="Favicon.ico" />
-		<title>CSV转换</title>
+		<title>Transform beta</title>
 		<script src="./papaparse.min.js"></script>
 		<style>
+			/* long-cang-regular - latin */
+			@font-face {
+				font-family: 'Long Cang';
+				font-style: normal;
+				font-weight: 400;
+				src: local(''),
+					/* Modern Browsers */ url('./LongCang-Regular.ttf')
+						format('truetype');
+			}
 			*,
 			*:before,
 			*:after {
@@ -18,10 +27,17 @@
 			body {
 				margin: 0;
 				padding: 2rem 1.5rem;
-				font: 1rem/1.5 'PT Sans', Arial, sans-serif;
 				color: #5a5a5a;
 				display: flex;
-				justify-content: center;
+				flex-direction: column;
+				align-items: center;
+			}
+			div {
+				font: 1.5rem 'Long Cang';
+				margin: 3rem 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 			}
 			.file {
 				position: relative;
@@ -102,6 +118,10 @@
 		</style>
 	</head>
 	<body>
+		<div>
+			<p>“设备运行状态”，全选，导出CSV</p>
+			<p>⬇</p>
+		</div>
 		<label class="file">
 			<input
 				type="file"
@@ -113,6 +133,10 @@
 			/>
 			<span class="file-custom"></span>
 		</label>
+		<div>
+			<p>⬇</p>
+			<p>（自动）下载，核对</p>
+		</div>
 		<script>
 			document.addEventListener('DOMContentLoaded', main);
 			function main() {
