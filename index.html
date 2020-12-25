@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>csv transform</title>
+		<title>设备运行状态转换</title>
 	</head>
 	<script src="./papaparse.min.js"></script>
 	<style>
@@ -108,6 +108,7 @@
 				name="csv"
 				accept=".csv"
 				aria-label="upload file to transform"
+				onclick="this.value = null"
 			/>
 			<span class="file-custom"></span>
 		</label>
@@ -163,7 +164,7 @@
 				};
 
 				const exportCSV = (csv) => {
-					const blob = new Blob([csv], {
+					const blob = new Blob(['\uFEFF' + csv], {
 						type: 'text/csv;charset=utf-8;',
 					});
 					if (navigator.msSaveBlob) {
